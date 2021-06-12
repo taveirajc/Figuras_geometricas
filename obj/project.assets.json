@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Areas_de_Figuras\\Areas_de_Figuras.csproj",
+      "projectUniqueName": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\Areas_de_Figuras.csproj",
       "projectName": "Areas_de_Figuras",
-      "projectPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Areas_de_Figuras\\Areas_de_Figuras.csproj",
+      "projectPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\Areas_de_Figuras.csproj",
       "packagesPath": "C:\\Users\\taveira\\.nuget\\packages\\",
-      "outputPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Areas_de_Figuras\\obj\\",
+      "outputPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\taveira\\AppData\\Roaming\\NuGet\\NuGet.Config",

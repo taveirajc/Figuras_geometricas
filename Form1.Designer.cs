@@ -51,6 +51,7 @@ namespace Areas_de_Figuras
             this.RbTrapezio = new System.Windows.Forms.RadioButton();
             this.RbLosango = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbHexagono = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -221,7 +222,7 @@ namespace Areas_de_Figuras
             this.RbTriangulo.AutoCheck = false;
             this.RbTriangulo.AutoSize = true;
             this.RbTriangulo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbTriangulo.Location = new System.Drawing.Point(70, 51);
+            this.RbTriangulo.Location = new System.Drawing.Point(70, 29);
             this.RbTriangulo.Name = "RbTriangulo";
             this.RbTriangulo.Size = new System.Drawing.Size(101, 27);
             this.RbTriangulo.TabIndex = 0;
@@ -235,7 +236,7 @@ namespace Areas_de_Figuras
             this.RbRetangulo.AutoCheck = false;
             this.RbRetangulo.AutoSize = true;
             this.RbRetangulo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbRetangulo.Location = new System.Drawing.Point(195, 51);
+            this.RbRetangulo.Location = new System.Drawing.Point(195, 29);
             this.RbRetangulo.Name = "RbRetangulo";
             this.RbRetangulo.Size = new System.Drawing.Size(109, 27);
             this.RbRetangulo.TabIndex = 1;
@@ -249,7 +250,7 @@ namespace Areas_de_Figuras
             this.RbQuadrado.AutoCheck = false;
             this.RbQuadrado.AutoSize = true;
             this.RbQuadrado.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbQuadrado.Location = new System.Drawing.Point(322, 51);
+            this.RbQuadrado.Location = new System.Drawing.Point(322, 29);
             this.RbQuadrado.Name = "RbQuadrado";
             this.RbQuadrado.Size = new System.Drawing.Size(106, 27);
             this.RbQuadrado.TabIndex = 2;
@@ -263,7 +264,7 @@ namespace Areas_de_Figuras
             this.RbCirculo.AutoCheck = false;
             this.RbCirculo.AutoSize = true;
             this.RbCirculo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbCirculo.Location = new System.Drawing.Point(70, 93);
+            this.RbCirculo.Location = new System.Drawing.Point(70, 71);
             this.RbCirculo.Name = "RbCirculo";
             this.RbCirculo.Size = new System.Drawing.Size(83, 27);
             this.RbCirculo.TabIndex = 3;
@@ -277,7 +278,7 @@ namespace Areas_de_Figuras
             this.RbTrapezio.AutoCheck = false;
             this.RbTrapezio.AutoSize = true;
             this.RbTrapezio.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbTrapezio.Location = new System.Drawing.Point(195, 93);
+            this.RbTrapezio.Location = new System.Drawing.Point(195, 71);
             this.RbTrapezio.Name = "RbTrapezio";
             this.RbTrapezio.Size = new System.Drawing.Size(95, 27);
             this.RbTrapezio.TabIndex = 4;
@@ -291,7 +292,7 @@ namespace Areas_de_Figuras
             this.RbLosango.AutoCheck = false;
             this.RbLosango.AutoSize = true;
             this.RbLosango.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbLosango.Location = new System.Drawing.Point(322, 93);
+            this.RbLosango.Location = new System.Drawing.Point(322, 71);
             this.RbLosango.Name = "RbLosango";
             this.RbLosango.Size = new System.Drawing.Size(92, 27);
             this.RbLosango.TabIndex = 5;
@@ -303,6 +304,7 @@ namespace Areas_de_Figuras
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
+            this.groupBox1.Controls.Add(this.rbHexagono);
             this.groupBox1.Controls.Add(this.RbLosango);
             this.groupBox1.Controls.Add(this.RbTrapezio);
             this.groupBox1.Controls.Add(this.RbCirculo);
@@ -316,6 +318,20 @@ namespace Areas_de_Figuras
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecione a figura";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // rbHexagono
+            // 
+            this.rbHexagono.AutoSize = true;
+            this.rbHexagono.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.rbHexagono.Location = new System.Drawing.Point(169, 109);
+            this.rbHexagono.Name = "rbHexagono";
+            this.rbHexagono.Size = new System.Drawing.Size(168, 27);
+            this.rbHexagono.TabIndex = 6;
+            this.rbHexagono.TabStop = true;
+            this.rbHexagono.Text = "Hexágono regular";
+            this.rbHexagono.UseVisualStyleBackColor = true;
+            this.rbHexagono.Click += new System.EventHandler(this.Opcao_escolhida);
             // 
             // pictureBox1
             // 
@@ -495,6 +511,7 @@ namespace Areas_de_Figuras
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.RadioButton rbHexagono;
     }
 }
 
