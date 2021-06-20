@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\Areas_de_Figuras.csproj": {}
+    "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras-geometricas\\Areas_de_Figuras.csproj": {}
   },
   "projects": {
-    "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\Areas_de_Figuras.csproj": {
+    "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras-geometricas\\Areas_de_Figuras.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\Areas_de_Figuras.csproj",
+        "projectUniqueName": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras-geometricas\\Areas_de_Figuras.csproj",
         "projectName": "Areas_de_Figuras",
-        "projectPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\Areas_de_Figuras.csproj",
+        "projectPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras-geometricas\\Areas_de_Figuras.csproj",
         "packagesPath": "C:\\Users\\taveira\\.nuget\\packages\\",
-        "outputPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras_geometricas\\obj\\",
+        "outputPath": "D:\\Projetos Visual Studio\\FEITOS POR MIM\\Figuras-geometricas\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\taveira\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -57,7 +57,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -29,6 +29,7 @@ namespace Areas_de_Figuras
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -318,7 +319,6 @@ namespace Areas_de_Figuras
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecione a figura";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // rbHexagono
             // 
@@ -336,6 +336,7 @@ namespace Areas_de_Figuras
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.pictureBox1.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.ErrorImage")));
             this.pictureBox1.Location = new System.Drawing.Point(611, 64);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(400, 400);

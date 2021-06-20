@@ -9,10 +9,13 @@ namespace Areas_de_Figuras
     {
         int opcao = -1;
         int altura, basex, basem, x, y, z;
+
  
         public Form1()
         {
             InitializeComponent();
+
+            //pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + @"imagens\img1.jpg");
             Esconde();
         }
 
@@ -26,7 +29,18 @@ namespace Areas_de_Figuras
             RbTrapezio.AutoCheck = true;
             RbTriangulo.AutoCheck = true;
             label9.Visible = false;
+            
         }
+
+        #region LIMPA OS TEXTBOX DAS ENTRADAS DOS DADOS
+        private void limpa_textBox()
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox5.Text = "";
+            textBox6.Text = "";
+        }
+        #endregion
 
         #region ESCONDE OS TEXTBOX E TÍTULOS DOS DADOS DE INFORMAÇÃO
         private void Esconde()
@@ -72,6 +86,7 @@ namespace Areas_de_Figuras
         #region OPÇÃO DA FIGURA ESCOLHIDA COLOCANDO OS LABEL E TEXTBOX PARA DIGITAR INFORMAÇÕES
         private void Opcao_escolhida(object sender, EventArgs e)
         {
+            limpa_textBox();
             label9.Visible = true;
             foreach (Control ctrl in groupBox1.Controls)
             {
@@ -83,6 +98,11 @@ namespace Areas_de_Figuras
                     }
                 }
             }
+
+            Graphics g = pictureBox1.CreateGraphics();
+
+            // Limpa o desenho anterior caso haja
+            g.Clear(Color.Gainsboro);
 
             // DESENHO DO TRIÂNGULO
             if (opcao == 0) // triângulo
@@ -184,12 +204,9 @@ namespace Areas_de_Figuras
         #region DESENHO DO TRIANGULO
         public void desenha_triangulo()
         {
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
 
-            Pen lapis = new Pen(Color.Black, 4);
+            //pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + @"imagens\img1.jpg");
+
             if (textBox1.Text == "" || textBox2.Text == "")
             {
                 MessageBox.Show("Preencha as duas informações solicitadas.");
@@ -219,21 +236,34 @@ namespace Areas_de_Figuras
                         new Point(x + basex, y + altura)
                     };
 
-                desenhador.DrawPolygon(lapis, pontos);
 
-                Pen lapis1 = new Pen(Color.Yellow, 3);
-                desenhador.DrawLine(lapis1, new Point(x + basex / 2, y + 5), new Point(x + basex / 2, y + altura - 5));
-
-                desenhador.DrawString("base", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 30, y + altura);
-                desenhador.DrawString("altura", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2, y + altura / 2 - 20);
-
-
-                //calculo da área e do polígono do quadrado
+                //calculo da área e do polígono do triângulo
                 textBox4.Text = ((int.Parse(textBox1.Text) * int.Parse(textBox2.Text)) / 2).ToString();
                 textBox3.Text = (int.Parse(textBox2.Text) * 3).ToString();
 
                 // coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = (base x altura)/2." + Environment.NewLine + "Perímetro = 3 x altura.";
+
+
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+
+                // define a cor do lápis e largura e o polígono
+                g.DrawPolygon(new Pen(Color.Black, 4), pontos);
+
+                // desenha as linhas internas do triângulo
+                Pen lapis1 = new Pen(Color.Yellow, 3);
+                g.DrawLine(lapis1, new Point(x + basex / 2, y + 5), new Point(x + basex / 2, y + altura - 5));
+
+                //escreve os textos no triângulo
+                g.DrawString("base", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 30, y + altura);
+                g.DrawString("altura", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2, y + altura / 2 - 20);
+
+                // limpa o objeto Graphics
+                g.Dispose();
             }
         }
         #endregion
@@ -241,12 +271,8 @@ namespace Areas_de_Figuras
         #region DESENHA RETANGULO
         public void desenha_retangulo()
         {
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
+            //pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + @"imagens\img1.jpg");
 
-            Pen lapis = new Pen(Color.Black, 4);
             if (textBox1.Text == "" || textBox2.Text == "")
             {
                 MessageBox.Show("Preencha as duas informações solicitadas.");
@@ -261,6 +287,7 @@ namespace Areas_de_Figuras
             }
             else
             {
+                
                 textBox7.Text = "";
                 basex = int.Parse(textBox1.Text) * 40;
                 altura = int.Parse(textBox2.Text) * 40;
@@ -269,17 +296,31 @@ namespace Areas_de_Figuras
                 y = (400 - altura) / 2;
 
                 Rectangle retang = new Rectangle(x, y, basex, altura);
-                desenhador.DrawRectangle(lapis, retang);
-                desenhador.DrawString("altura", new Font("Arial", 16), new SolidBrush(Color.Black), x, y + altura / 2 - 20);
-                desenhador.DrawString("base", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 30, y + altura);
 
                 //calculo da área e do polígono do retângulo
-
                 textBox4.Text = (int.Parse(textBox1.Text) * int.Parse(textBox2.Text)).ToString();       // área
                 textBox3.Text = (2 * (int.Parse(textBox1.Text) + int.Parse(textBox2.Text))).ToString(); // polígono
 
                 // coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = base x altura." + Environment.NewLine + "Perímetro = 2 x (base + altura).";
+
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+
+
+
+                // define a cor do lápis e largura e o retang
+                g.DrawRectangle(new Pen(Color.Black, 4), retang);
+
+                //desenhador.DrawRectangle(lapis, retang);
+                g.DrawString("altura", new Font("Arial", 16), new SolidBrush(Color.Black), x, y + altura / 2 - 20);
+                g.DrawString("base", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 30, y + altura);
+
+                // limpa o objeto Graphics
+                g.Dispose();
             }
         }
 
@@ -288,12 +329,6 @@ namespace Areas_de_Figuras
         #region DESENHO DO QUADRADO
         public void desenha_quadrado()
         {
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
-
-            Pen lapis = new Pen(Color.Black, 4);
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Preencha o valor solicitado.");
@@ -311,18 +346,33 @@ namespace Areas_de_Figuras
                 basex = int.Parse(textBox1.Text) * 40;
 
                 x = (400 - basex) / 2;
-                //int y = (400 - altura) / 2;
 
+                // define o quadrado de acordo com o lado informado através de um retângulo
                 Rectangle retang = new Rectangle(x, x, basex, basex);
-                desenhador.DrawRectangle(lapis, retang);
-                desenhador.DrawString("L = " + textBox1.Text, new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 35, x + basex + 10);
 
-                //calculo da área e do polígono do quadrado
+                //calculo da área e do polígono do quadrado. Mostra também o valor do lado
                 textBox4.Text = (int.Parse(textBox1.Text) * int.Parse(textBox1.Text)).ToString();
                 textBox3.Text = (int.Parse(textBox1.Text) * 4).ToString();
+                label10.Text = "Lado:";
+                textBox9.Text = (int.Parse(textBox1.Text)).ToString();
 
-                // coloca no textbox as formulas da figura selecionada
+                //// coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = lado x lado." + Environment.NewLine + "Perímetro = 4 x lado.";
+
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+               
+                // define a cor do lápis e largura e o retang
+                g.DrawRectangle(new Pen(Color.Black, 4), retang);
+
+                // escreve o lado do quadrado
+                g.DrawString("L = " + textBox1.Text, new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 30, x + basex + 10);
+
+                // limpa o objeto Graphics
+                g.Dispose();
             }
         }
         #endregion
@@ -330,14 +380,6 @@ namespace Areas_de_Figuras
         #region DESENHO DO CÍRCULO
         private void desenha_circulo()
         {
-
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
-
-            Pen lapis = new Pen(Color.Black, 4);
-
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Preencha o valor solicitado.");
@@ -356,36 +398,43 @@ namespace Areas_de_Figuras
 
                 x = (400 - basex) / 2;
 
-
+                // define o quadrado de acordo com o raio informado através de um retângulo
                 Rectangle retang = new Rectangle(x, x, basex, basex);
-                desenhador.DrawEllipse(lapis, retang);
-                desenhador.DrawString("R = " + textBox1.Text, new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 35, x + basex + 10);
 
                 //calculo da área e do perímeto do círculo
-                textBox4.Text = (3.1415 * (int.Parse(textBox1.Text) * int.Parse(textBox1.Text))).ToString();
-                textBox3.Text = (2 * 3.1415 * (int.Parse(textBox1.Text))).ToString();
+                textBox4.Text = (3.1415 * (int.Parse(textBox1.Text) * int.Parse(textBox1.Text))).ToString("N2");
+                textBox3.Text = (2 * 3.1415 * (int.Parse(textBox1.Text))).ToString("N2");
+                label10.Text = "Raio:";
+                textBox9.Text = (int.Parse(textBox1.Text)).ToString();
+
 
                 // coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = Pi x (r^2)." + Environment.NewLine + "Perímetro = 2 x Pi x r.";
+
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+
+                // define a cor do lápis e largura e o retang
+                g.DrawEllipse(new Pen(Color.Black, 4), retang);
+
+                // escreve o raio do círculo
+                g.DrawString("R = " + textBox1.Text, new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 2 - 35, x + basex + 10);
+
+                // limpa o objeto Graphics
+                g.Dispose();
+
             }
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
         #endregion
 
         #region DESENHO DO TRAPÉZIO
         private void desenha_trapezio()
         {
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
-
-            Pen lapis = new Pen(Color.Black, 4);
 
             if (textBox1.Text == "" || textBox2.Text == "" || textBox6.Text == "")
             {
@@ -401,7 +450,14 @@ namespace Areas_de_Figuras
                 textBox1.Select();
             }
             else
+            if (textBox1.Text == textBox2.Text)
             {
+                MessageBox.Show("Base maior igual a base menor vira quadrado. Digite valores diferentes.");
+                textBox1.Select();
+            }
+            else
+            {
+
                 textBox7.Text = "";
                 basex = Convert.ToInt32(textBox1.Text) * 40;
                 basem = Convert.ToInt32(textBox2.Text) * 40;
@@ -417,59 +473,63 @@ namespace Areas_de_Figuras
                         new Point(z, 400 - (y + altura)),
                         new Point(z + basem, 400 - (y + altura)),
                         new Point(x + basex, y + altura),
-                    };
-
-                desenhador.DrawPolygon(lapis, pontos);
+                };
 
                 // LINHAS INTERNAS DO TRAPÉZIO
                 double ALT = Convert.ToDouble(textBox6.Text);
                 double BM = Convert.ToDouble(textBox1.Text);
                 double Bm = Convert.ToDouble(textBox2.Text);
 
-                // ESCREVE OS LADOS E BASE DA FIGURA
-                if (BM > Bm) // SE BASE MAIOR FOR MAIOR QUE BASE MENOR.....
-                {
-
-                    desenhador.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 15, y + altura);
-                    desenhador.DrawString("base menor", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 15, 400 - (y + altura) - 30);
-                }
-                if (BM < Bm)// SE BASE MAIOR FOR MENOR QUE BASE MAIOR.....
-                {
-
-                    desenhador.DrawString("base menor", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 15, y + altura);
-                    desenhador.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 15, 400 - (y + altura) - 30);
-                }
-                desenhador.DrawString("L1", new Font("Arial", 16), new SolidBrush(Color.Black), x - 30, 190);
-                desenhador.DrawString("L2", new Font("Arial", 16), new SolidBrush(Color.Black), x + 280, 190);
-
-
                 //calculo da área
                 textBox4.Text = (((BM + Bm) * ALT) / 2).ToString();
-
                 // CALCULO DO LADO
                 double lado = Math.Sqrt(Math.Pow(ALT, 2) + Math.Pow(((BM - Bm) / 2), 2));
                 textBox9.Text = lado.ToString("N2");
                 // calculo do perímetro
                 textBox3.Text = (BM + Bm + lado + lado).ToString("N2");
 
+                //// coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = ((B + b) * altura) /2." +
-                    Environment.NewLine + "Perímetro = B + b + L1 + L2" +
-                    Environment.NewLine + "Lado = RAIZ((h*h) + ((BM - Bm) / 2) ^2 )";
+                                Environment.NewLine + "Perímetro = B + b + L1 + L2" +
+                                Environment.NewLine + "Lado = RAIZ((h*h) + ((BM - Bm) / 2) ^2 )";
 
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+
+                // define a cor do lápis e largura e o trapézio
+                g.DrawPolygon(new Pen(Color.Black, 4), pontos);
+
+
+                // ESCREVE OS LADOS E BASE DA FIGURA
+                if (BM > Bm) // SE BASE MAIOR FOR MAIOR QUE BASE MENOR.....
+                {
+
+                    g.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 15, y + altura);
+                    g.DrawString("base menor", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 15, 400 - (y + altura) - 30);
+                }
+                if (BM < Bm)// SE BASE MAIOR FOR MENOR QUE BASE MAIOR.....
+                {
+
+                    g.DrawString("base menor", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 5, y + altura -30);
+                    g.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 5, 400 - (y + altura) - 30);
+                }
+
+                g.DrawString("L1", new Font("Arial", 16), new SolidBrush(Color.Black), x - 30, 190);
+                g.DrawString("L2", new Font("Arial", 16), new SolidBrush(Color.Black), x + 320, 190);
+
+                // limpa o objeto Graphics
+                g.Dispose();
             }
-
         }
         #endregion
 
-        #region DESENHO DO LOSANFO
+        #region DESENHO DO LOSANGO
         private void desenha_losango()
         {
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
 
-            Pen lapis = new Pen(Color.Black, 4);
             if (textBox1.Text == "" || textBox2.Text == "")
             {
                 MessageBox.Show("Preencha as duas informações solicitadas.");
@@ -484,6 +544,7 @@ namespace Areas_de_Figuras
             }
             else
             {
+
                 textBox7.Text = "";
                 int DM = Convert.ToInt32(textBox1.Text) * 40;
                 int Dm = Convert.ToInt32(textBox2.Text) * 40;
@@ -499,19 +560,6 @@ namespace Areas_de_Figuras
                     new Point(200, y + DM),
                     new Point(x + Dm, DM/2 + y),
                     };
-
-                desenhador.DrawPolygon(lapis, pontos);
-
-                // DESENHA AS LINHAS INTERNAS DO LOSANGO
-                Pen lapis1 = new Pen(Color.Blue, 3);
-                Pen lapis2 = new Pen(Color.Green, 3);
-
-                desenhador.DrawLine(lapis2, new Point(200, y + 5), new Point(200, y + DM - 5)); // diagonal maior
-                desenhador.DrawLine(lapis1, new Point(x + 4, DM / 2 + y), new Point(x + Dm - 4, DM / 2 + y)); // diagonal menor
-
-                // ESCREVE AS PALAVRAS DIAGONAL MAIOR E DIAGONAL MENOR DENTRO DO LOSANGO
-                desenhador.DrawString("Dm", new Font("Arial", 16), new SolidBrush(Color.Blue), 160, 200);
-                desenhador.DrawString("DM", new Font("Arial", 16), new SolidBrush(Color.Green), 200, 160);
 
                 //calculo da área do losango
                 textBox4.Text = ((int.Parse(textBox1.Text) * int.Parse(textBox2.Text)) / 2).ToString();
@@ -529,6 +577,29 @@ namespace Areas_de_Figuras
                 textBox7.Text = Environment.NewLine + "Área = (DM x Dm)/2." +
                 Environment.NewLine + "Lado = RAIZ((DM/2)^2 + (Dm/2)^2)" +
                 Environment.NewLine + "Perímetro = 4 x lado.";
+
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+
+                //desenha a figura
+                g.DrawPolygon(new Pen(Color.Black,4), pontos);
+
+                // DESENHA AS LINHAS INTERNAS DO LOSANGO
+                Pen lapis1 = new Pen(Color.Blue, 3);
+                Pen lapis2 = new Pen(Color.Green, 3);
+
+                g.DrawLine(lapis2, new Point(200, y + 5), new Point(200, y + DM - 5)); // diagonal maior
+                g.DrawLine(lapis1, new Point(x + 4, DM / 2 + y), new Point(x + Dm - 4, DM / 2 + y)); // diagonal menor
+
+                // ESCREVE AS PALAVRAS DIAGONAL MAIOR E DIAGONAL MENOR DENTRO DO LOSANGO
+                g.DrawString("Dm", new Font("Arial", 16), new SolidBrush(Color.Blue), 160, 200);
+                g.DrawString("DM", new Font("Arial", 16), new SolidBrush(Color.Green), 200, 160);
+
+                // limpa o objeto Graphics
+                g.Dispose();
             }
 
         }
@@ -537,12 +608,6 @@ namespace Areas_de_Figuras
         #region DESENHO DO HEXÁGONO
         private void desenha_hexagono()
         {
-            Bitmap folha = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Graphics desenhador = Graphics.FromImage(folha);
-            desenhador.Clear(Color.Gainsboro);
-            pictureBox1.BackgroundImage = folha;
-            Pen lapis = new Pen(Color.Black, 4);
-
 
             if (textBox1.Text == "")
             {
@@ -580,24 +645,7 @@ namespace Areas_de_Figuras
                 point5,
                 point6
             };
-                desenhador.DrawPolygon(lapis, pontos);
 
-
-                //desenhador.DrawLine(lapis, new Point(x , y + lado), new Point(200 -lado + lado/2,  y));   // linha AB
-                //desenhador.DrawLine(lapis, new Point(200 -lado + lado/2,  y), new Point(x + lado + lado /2, y)); // linha BC
-                //desenhador.DrawLine(lapis, new Point(x + lado + lado / 2, y), new Point(x + lado * 2, y + lado)); // linha CD
-                //desenhador.DrawLine(lapis, new Point(x + lado * 2, y + lado), new Point(x + lado + lado / 2, y + lado * 2)); // linha DE
-                //desenhador.DrawLine(lapis, new Point(x + lado + lado / 2, y + lado * 2), new Point(200 - lado + lado / 2, y + lado * 2)); // linha EF
-                //desenhador.DrawLine(lapis, new Point(200 - lado + lado / 2, y + lado * 2), new Point(x, y + lado)); // linha FA
-
-                // TRAÇOS DAS LINHAS INTERNAS
-                Pen lapis1 = new Pen(Color.Blue, 3);
-                desenhador.DrawLine(lapis1, new Point(x, y + lado), new Point(x + lado * 2, y + lado)); // linha AD
-                desenhador.DrawLine(lapis1, new Point(200 - lado + lado / 2, y), new Point(x + lado + lado / 2, y + lado * 2)); // linha BE
-                desenhador.DrawLine(lapis1, new Point(x + lado + lado / 2, y), new Point(200 - lado + lado / 2, y + lado * 2));  // linha CF
-
-                // ESCREVE AS PALAVRAS DIAGONAL MAIOR E DIAGONAL MENOR DENTRO DO LOSANGO
-                desenhador.DrawString("L", new Font("Arial", 16), new SolidBrush(Color.Blue), 200 - lado /2, 200);
 
                 //calculo da área do hexágono
                 double LADO = (int.Parse(textBox1.Text));
@@ -609,6 +657,27 @@ namespace Areas_de_Figuras
                 // coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = ((3xlado^2 x raiz(3))/2." +
                 Environment.NewLine + "Perímetro = 6 x lado.";
+
+                // define o objeto Graphics no picturebox
+                Graphics g = pictureBox1.CreateGraphics();
+
+                // Limpa o desenho anterior caso haja
+                //g.Clear(Color.Gainsboro);
+
+                // desenha a figura
+                g.DrawPolygon(new Pen(Color.Black,4), pontos);
+
+                // TRAÇOS DAS LINHAS INTERNAS
+                Pen lapis1 = new Pen(Color.Blue, 3);
+                g.DrawLine(lapis1, new Point(x, y + lado), new Point(x + lado * 2, y + lado)); // linha AD
+                g.DrawLine(lapis1, new Point(200 - lado + lado / 2, y), new Point(x + lado + lado / 2, y + lado * 2)); // linha BE
+                g.DrawLine(lapis1, new Point(x + lado + lado / 2, y), new Point(200 - lado + lado / 2, y + lado * 2));  // linha CF
+
+                // ESCREVE AS PALAVRAS DIAGONAL MAIOR E DIAGONAL MENOR DENTRO DO LOSANGO
+                g.DrawString("L", new Font("Arial", 16), new SolidBrush(Color.Blue), 200 - lado /2, 200);
+
+                // limpa o objeto Graphics
+                g.Dispose();
             }
         }
         #endregion
