@@ -14,8 +14,6 @@ namespace Areas_de_Figuras
         public Form1()
         {
             InitializeComponent();
-
-            //pictureBox1.BackgroundImage = Image.FromFile(Application.StartupPath + @"imagens\img1.jpg");
             Esconde();
         }
 
@@ -79,6 +77,8 @@ namespace Areas_de_Figuras
                 textBox2.Visible = true;
                 label8.Visible = true;
                 textBox6.Visible = true;
+                label7.Visible = true;
+                textBox5.Visible = true;
             }
         }
         #endregion
@@ -102,7 +102,9 @@ namespace Areas_de_Figuras
             Graphics g = pictureBox1.CreateGraphics();
 
             // Limpa o desenho anterior caso haja
-            g.Clear(Color.Gainsboro);
+            g.Clear(Color.LightSkyBlue);
+
+            textBox7.Text = "";
 
             // DESENHO DO TRIÂNGULO
             if (opcao == 0) // triângulo
@@ -170,6 +172,7 @@ namespace Areas_de_Figuras
                 label2.Text = "Informe o valor da base maior: ";
                 label3.Text = "Informe o valor da base menor: ";
                 label8.Text = "Informe o valor da altura: ";
+                label7.Text = "Informe o valor do lado: ";
                 textBox1.Select();
             }
 
@@ -222,7 +225,7 @@ namespace Areas_de_Figuras
             else
             {
 
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 basex = Convert.ToInt32(textBox1.Text) * 40;
                 altura = Convert.ToInt32(textBox2.Text) * 40;
 
@@ -234,7 +237,7 @@ namespace Areas_de_Figuras
                         new Point(x, y + altura),
                         new Point(x + basex /2, y),
                         new Point(x + basex, y + altura)
-                    };
+                };
 
 
                 //calculo da área e do polígono do triângulo
@@ -247,9 +250,6 @@ namespace Areas_de_Figuras
 
                 // define o objeto Graphics no picturebox
                 Graphics g = pictureBox1.CreateGraphics();
-
-                // Limpa o desenho anterior caso haja
-                //g.Clear(Color.Gainsboro);
 
                 // define a cor do lápis e largura e o polígono
                 g.DrawPolygon(new Pen(Color.Black, 4), pontos);
@@ -288,7 +288,7 @@ namespace Areas_de_Figuras
             else
             {
                 
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 basex = int.Parse(textBox1.Text) * 40;
                 altura = int.Parse(textBox2.Text) * 40;
 
@@ -342,7 +342,7 @@ namespace Areas_de_Figuras
             }
             else
             {
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 basex = int.Parse(textBox1.Text) * 40;
 
                 x = (400 - basex) / 2;
@@ -393,7 +393,7 @@ namespace Areas_de_Figuras
             }
             else
             {
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 basex = int.Parse(textBox1.Text) * 40;
 
                 x = (400 - basex) / 2;
@@ -458,7 +458,7 @@ namespace Areas_de_Figuras
             else
             {
 
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 basex = Convert.ToInt32(textBox1.Text) * 40;
                 basem = Convert.ToInt32(textBox2.Text) * 40;
                 altura = Convert.ToInt32(textBox6.Text) * 40;
@@ -483,15 +483,15 @@ namespace Areas_de_Figuras
                 //calculo da área
                 textBox4.Text = (((BM + Bm) * ALT) / 2).ToString();
                 // CALCULO DO LADO
-                double lado = Math.Sqrt(Math.Pow(ALT, 2) + Math.Pow(((BM - Bm) / 2), 2));
-                textBox9.Text = lado.ToString("N2");
+                double lado = int.Parse(textBox5.Text);
+                textBox9.Text = textBox5.Text; // lado.ToString();
                 // calculo do perímetro
-                textBox3.Text = (BM + Bm + lado + lado).ToString("N2");
+                textBox3.Text = (BM + Bm + lado + lado).ToString();
 
                 //// coloca no textbox as formulas da figura selecionada
                 textBox7.Text = Environment.NewLine + "Área = ((B + b) * altura) /2." +
-                                Environment.NewLine + "Perímetro = B + b + L1 + L2" +
-                                Environment.NewLine + "Lado = RAIZ((h*h) + ((BM - Bm) / 2) ^2 )";
+                                Environment.NewLine + "Perímetro = B + b + L1 + L2";
+                                //Environment.NewLine + "Lado = RAIZ((h*h) + ((BM - Bm) / 2) ^2 )";
 
                 // define o objeto Graphics no picturebox
                 Graphics g = pictureBox1.CreateGraphics();
@@ -517,8 +517,11 @@ namespace Areas_de_Figuras
                     g.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex / 3 - 5, 400 - (y + altura) - 30);
                 }
 
-                g.DrawString("L1", new Font("Arial", 16), new SolidBrush(Color.Black), x - 30, 190);
-                g.DrawString("L2", new Font("Arial", 16), new SolidBrush(Color.Black), x + 320, 190);
+                g.DrawString("L1", new Font("Arial", 16), new SolidBrush(Color.Black), x - 20, 190);
+                g.DrawString("L2", new Font("Arial", 16), new SolidBrush(Color.Black), x + basex -5, 190);
+                g.DrawString("h", new Font("Arial", 16), new SolidBrush(Color.Black), z + 7, 190);
+
+                g.DrawLine(new Pen(Color.Black, 4), z, 400 - (y + altura), z, y + altura);
 
                 // limpa o objeto Graphics
                 g.Dispose();
@@ -545,7 +548,7 @@ namespace Areas_de_Figuras
             else
             {
 
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 int DM = Convert.ToInt32(textBox1.Text) * 40;
                 int Dm = Convert.ToInt32(textBox2.Text) * 40;
 
@@ -623,7 +626,7 @@ namespace Areas_de_Figuras
             }
             else
             {
-                textBox7.Text = "";
+                //textBox7.Text = "";
                 int lado = int.Parse(textBox1.Text) * 40 / 2;
 
                 x = y = (400 - lado * 2) / 2;
@@ -685,6 +688,10 @@ namespace Areas_de_Figuras
         #region MÉTODO DE QUANDO CLICA O BOTÃO DESENHAR PARA DESENHAR AS FIGURAS
         public void BtnDesenhar_Click(object sender, EventArgs e)
         {
+
+            Graphics g = pictureBox1.CreateGraphics();
+            // Limpa o desenho anterior caso haja
+            g.Clear(Color.LightSkyBlue);
 
             if (opcao == 0) 
             {
