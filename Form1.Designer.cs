@@ -281,10 +281,10 @@ namespace Areas_de_Figuras
             this.RbTrapezio.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.RbTrapezio.Location = new System.Drawing.Point(195, 71);
             this.RbTrapezio.Name = "RbTrapezio";
-            this.RbTrapezio.Size = new System.Drawing.Size(95, 27);
+            this.RbTrapezio.Size = new System.Drawing.Size(171, 27);
             this.RbTrapezio.TabIndex = 4;
             this.RbTrapezio.TabStop = true;
-            this.RbTrapezio.Text = "Trapézio";
+            this.RbTrapezio.Text = "Trapézio isósceles";
             this.RbTrapezio.UseVisualStyleBackColor = true;
             this.RbTrapezio.Click += new System.EventHandler(this.Opcao_escolhida);
             // 
@@ -293,7 +293,7 @@ namespace Areas_de_Figuras
             this.RbLosango.AutoCheck = false;
             this.RbLosango.AutoSize = true;
             this.RbLosango.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbLosango.Location = new System.Drawing.Point(322, 71);
+            this.RbLosango.Location = new System.Drawing.Point(322, 110);
             this.RbLosango.Name = "RbLosango";
             this.RbLosango.Size = new System.Drawing.Size(92, 27);
             this.RbLosango.TabIndex = 5;
@@ -324,7 +324,7 @@ namespace Areas_de_Figuras
             // 
             this.rbHexagono.AutoSize = true;
             this.rbHexagono.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rbHexagono.Location = new System.Drawing.Point(169, 109);
+            this.rbHexagono.Location = new System.Drawing.Point(70, 109);
             this.rbHexagono.Name = "rbHexagono";
             this.rbHexagono.Size = new System.Drawing.Size(168, 27);
             this.rbHexagono.TabIndex = 6;
