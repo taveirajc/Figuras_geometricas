@@ -371,6 +371,7 @@ namespace Areas_de_Figuras
                 // escreve o lado do quadrado
                 g.DrawString("L = " + textBox1.Text, new Font("Arial", 16), new SolidBrush(Color.Black), x + baseM / 2 - 30, x + baseM + 10);
 
+
                 // limpa o objeto Graphics
                 g.Dispose();
             }
@@ -420,6 +421,9 @@ namespace Areas_de_Figuras
                 // define a cor do lápis e largura e o retang
                 g.DrawEllipse(new Pen(Color.Black, 4), retang);
 
+                // desenha o raio dentro do círculo
+                g.DrawLine(new Pen(Color.Yellow, 4), x + baseM/2,  x + baseM , x + baseM / 2, x + baseM /2);
+
                 // escreve o raio do círculo
                 g.DrawString("R = " + textBox1.Text, new Font("Arial", 16), new SolidBrush(Color.Black), x + baseM / 2 - 35, x + baseM + 10);
 
@@ -453,6 +457,12 @@ namespace Areas_de_Figuras
             if (textBox1.Text == textBox2.Text)
             {
                 MessageBox.Show("Base maior igual a base menor vira retângulo ou quadrado. Digite valores diferentes.");
+                textBox1.Select();
+            }
+            else
+            if (int.Parse(textBox1.Text) < int.Parse(textBox2.Text))
+            {
+                MessageBox.Show("Base maior menor que a base menor não será possível. Digite o valor da base maior, maior que a base menor.");
                 textBox1.Select();
             }
             else
@@ -523,21 +533,21 @@ namespace Areas_de_Figuras
                     g.DrawString("h", new Font("Arial", 16), new SolidBrush(Color.Black), z + 7, 190);
                 }
 
-                if (BM < Bm)// SE BASE MAIOR FOR MENOR QUE BASE MAIOR.....
-                {
-                    //escreve as palavras base maior e base menor
-                    g.DrawString("base menor", new Font("Arial", 16), new SolidBrush(Color.Black), (400 - 120) / 2, y + lado1);
-                    g.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), (400 - 120) / 2, 400 - (y + lado1) - 30);
+                //if (BM < Bm)// SE BASE MAIOR FOR MENOR QUE BASE MAIOR.....
+                //{
+                //    //escreve as palavras base maior e base menor
+                //    g.DrawString("base menor", new Font("Arial", 16), new SolidBrush(Color.Black), (400 - 120) / 2, y + lado1);
+                //    g.DrawString("base maior", new Font("Arial", 16), new SolidBrush(Color.Black), (400 - 120) / 2, 400 - (y + lado1) - 30);
 
-                    // desenha as diagonais
-                    g.DrawLine(new Pen(Color.Black, 4), x, 400 - (y + lado1), x, y + lado1);
-                    g.DrawLine(new Pen(Color.Black, 4), x + baseM, 400 - (y + lado1), 400 -x, y + lado1);
+                //    // desenha as diagonais
+                //    g.DrawLine(new Pen(Color.Black, 4), x, 400 - (y + lado1), x, y + lado1);
+                //    g.DrawLine(new Pen(Color.Black, 4), x + baseM, 400 - (y + lado1), 400 -x, y + lado1);
 
-                    // escreve L1, L2 e h (altura) no desenho da figura
-                    g.DrawString("L1", new Font("Arial", 16), new SolidBrush(Color.Black), x - 20, 190);
-                    g.DrawString("L2", new Font("Arial", 16), new SolidBrush(Color.Black), x + baseM - 5, 190);
-                    g.DrawString("h", new Font("Arial", 16), new SolidBrush(Color.Black), z + 7, 190);
-                }
+                //    // escreve L1, L2 e h (altura) no desenho da figura
+                //    g.DrawString("L1", new Font("Arial", 16), new SolidBrush(Color.Black), x - baseM/2, 190);
+                //    g.DrawString("L2", new Font("Arial", 16), new SolidBrush(Color.Black), x + baseM + 40, 190);
+                //    g.DrawString("h", new Font("Arial", 16), new SolidBrush(Color.Black), x + 7, 190);
+                //}
 
                 // limpa o objeto Graphics
                 g.Dispose();

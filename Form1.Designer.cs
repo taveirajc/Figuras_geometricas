@@ -123,7 +123,7 @@ namespace Areas_de_Figuras
             // 
             this.textBox5.Location = new System.Drawing.Point(277, 141);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 26);
+            this.textBox5.Size = new System.Drawing.Size(62, 26);
             this.textBox5.TabIndex = 9;
             // 
             // label7
@@ -140,7 +140,7 @@ namespace Areas_de_Figuras
             // 
             this.textBox6.Location = new System.Drawing.Point(277, 68);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 26);
+            this.textBox6.Size = new System.Drawing.Size(62, 26);
             this.textBox6.TabIndex = 7;
             // 
             // label8
@@ -167,7 +167,7 @@ namespace Areas_de_Figuras
             // 
             this.textBox2.Location = new System.Drawing.Point(11, 141);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 26);
+            this.textBox2.Size = new System.Drawing.Size(62, 26);
             this.textBox2.TabIndex = 3;
             // 
             // label3
@@ -184,7 +184,7 @@ namespace Areas_de_Figuras
             // 
             this.textBox1.Location = new System.Drawing.Point(11, 68);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 26);
+            this.textBox1.Size = new System.Drawing.Size(62, 26);
             this.textBox1.TabIndex = 1;
             // 
             // label2
@@ -394,7 +394,7 @@ namespace Areas_de_Figuras
             // BtnSair
             // 
             this.BtnSair.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BtnSair.Location = new System.Drawing.Point(897, 598);
+            this.BtnSair.Location = new System.Drawing.Point(894, 598);
             this.BtnSair.Name = "BtnSair";
             this.BtnSair.Size = new System.Drawing.Size(117, 32);
             this.BtnSair.TabIndex = 12;
