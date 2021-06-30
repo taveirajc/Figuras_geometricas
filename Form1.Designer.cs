@@ -43,16 +43,23 @@ namespace Areas_de_Figuras
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.pB_triangulo = new System.Windows.Forms.PictureBox();
             this.BtnDesenhar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.RbTriangulo = new System.Windows.Forms.RadioButton();
-            this.RbRetangulo = new System.Windows.Forms.RadioButton();
-            this.RbQuadrado = new System.Windows.Forms.RadioButton();
-            this.RbCirculo = new System.Windows.Forms.RadioButton();
-            this.RbTrapezio = new System.Windows.Forms.RadioButton();
-            this.RbLosango = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.rbHexagono = new System.Windows.Forms.RadioButton();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pB_Quadrado = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -65,7 +72,14 @@ namespace Areas_de_Figuras
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_triangulo)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Quadrado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,7 +100,7 @@ namespace Areas_de_Figuras
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(31, 228);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(516, 236);
+            this.panel1.Size = new System.Drawing.Size(574, 236);
             this.panel1.TabIndex = 2;
             // 
             // label13
@@ -121,7 +135,7 @@ namespace Areas_de_Figuras
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(277, 141);
+            this.textBox5.Location = new System.Drawing.Point(294, 141);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(62, 26);
             this.textBox5.TabIndex = 9;
@@ -130,7 +144,7 @@ namespace Areas_de_Figuras
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(277, 119);
+            this.label7.Location = new System.Drawing.Point(294, 119);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(51, 20);
             this.label7.TabIndex = 8;
@@ -138,7 +152,7 @@ namespace Areas_de_Figuras
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(277, 68);
+            this.textBox6.Location = new System.Drawing.Point(294, 68);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(62, 26);
             this.textBox6.TabIndex = 7;
@@ -147,7 +161,7 @@ namespace Areas_de_Figuras
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(277, 46);
+            this.label8.Location = new System.Drawing.Point(294, 46);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 20);
             this.label8.TabIndex = 6;
@@ -197,6 +211,16 @@ namespace Areas_de_Figuras
             this.label2.TabIndex = 0;
             this.label2.Text = "label2";
             // 
+            // pB_triangulo
+            // 
+            this.pB_triangulo.Image = ((System.Drawing.Image)(resources.GetObject("pB_triangulo.Image")));
+            this.pB_triangulo.Location = new System.Drawing.Point(6, 29);
+            this.pB_triangulo.Name = "pB_triangulo";
+            this.pB_triangulo.Size = new System.Drawing.Size(75, 75);
+            this.pB_triangulo.TabIndex = 16;
+            this.pB_triangulo.TabStop = false;
+            this.pB_triangulo.Click += new System.EventHandler(this.pB_Triangulo_Click);
+            // 
             // BtnDesenhar
             // 
             this.BtnDesenhar.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -218,120 +242,169 @@ namespace Areas_de_Figuras
             this.label5.TabIndex = 3;
             this.label5.Text = "Cálculo da área e perímetro das principais figuras geométricas.";
             // 
-            // RbTriangulo
-            // 
-            this.RbTriangulo.AutoCheck = false;
-            this.RbTriangulo.AutoSize = true;
-            this.RbTriangulo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbTriangulo.Location = new System.Drawing.Point(70, 29);
-            this.RbTriangulo.Name = "RbTriangulo";
-            this.RbTriangulo.Size = new System.Drawing.Size(101, 27);
-            this.RbTriangulo.TabIndex = 0;
-            this.RbTriangulo.TabStop = true;
-            this.RbTriangulo.Text = "Triângulo";
-            this.RbTriangulo.UseVisualStyleBackColor = true;
-            this.RbTriangulo.Click += new System.EventHandler(this.Opcao_escolhida);
-            // 
-            // RbRetangulo
-            // 
-            this.RbRetangulo.AutoCheck = false;
-            this.RbRetangulo.AutoSize = true;
-            this.RbRetangulo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbRetangulo.Location = new System.Drawing.Point(195, 29);
-            this.RbRetangulo.Name = "RbRetangulo";
-            this.RbRetangulo.Size = new System.Drawing.Size(109, 27);
-            this.RbRetangulo.TabIndex = 1;
-            this.RbRetangulo.TabStop = true;
-            this.RbRetangulo.Text = "Retângulo";
-            this.RbRetangulo.UseVisualStyleBackColor = true;
-            this.RbRetangulo.Click += new System.EventHandler(this.Opcao_escolhida);
-            // 
-            // RbQuadrado
-            // 
-            this.RbQuadrado.AutoCheck = false;
-            this.RbQuadrado.AutoSize = true;
-            this.RbQuadrado.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbQuadrado.Location = new System.Drawing.Point(322, 29);
-            this.RbQuadrado.Name = "RbQuadrado";
-            this.RbQuadrado.Size = new System.Drawing.Size(106, 27);
-            this.RbQuadrado.TabIndex = 2;
-            this.RbQuadrado.TabStop = true;
-            this.RbQuadrado.Text = "Quadrado";
-            this.RbQuadrado.UseVisualStyleBackColor = true;
-            this.RbQuadrado.Click += new System.EventHandler(this.Opcao_escolhida);
-            // 
-            // RbCirculo
-            // 
-            this.RbCirculo.AutoCheck = false;
-            this.RbCirculo.AutoSize = true;
-            this.RbCirculo.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbCirculo.Location = new System.Drawing.Point(70, 71);
-            this.RbCirculo.Name = "RbCirculo";
-            this.RbCirculo.Size = new System.Drawing.Size(83, 27);
-            this.RbCirculo.TabIndex = 3;
-            this.RbCirculo.TabStop = true;
-            this.RbCirculo.Text = "Círculo";
-            this.RbCirculo.UseVisualStyleBackColor = true;
-            this.RbCirculo.Click += new System.EventHandler(this.Opcao_escolhida);
-            // 
-            // RbTrapezio
-            // 
-            this.RbTrapezio.AutoCheck = false;
-            this.RbTrapezio.AutoSize = true;
-            this.RbTrapezio.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbTrapezio.Location = new System.Drawing.Point(195, 71);
-            this.RbTrapezio.Name = "RbTrapezio";
-            this.RbTrapezio.Size = new System.Drawing.Size(171, 27);
-            this.RbTrapezio.TabIndex = 4;
-            this.RbTrapezio.TabStop = true;
-            this.RbTrapezio.Text = "Trapézio isósceles";
-            this.RbTrapezio.UseVisualStyleBackColor = true;
-            this.RbTrapezio.Click += new System.EventHandler(this.Opcao_escolhida);
-            // 
-            // RbLosango
-            // 
-            this.RbLosango.AutoCheck = false;
-            this.RbLosango.AutoSize = true;
-            this.RbLosango.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.RbLosango.Location = new System.Drawing.Point(322, 110);
-            this.RbLosango.Name = "RbLosango";
-            this.RbLosango.Size = new System.Drawing.Size(92, 27);
-            this.RbLosango.TabIndex = 5;
-            this.RbLosango.TabStop = true;
-            this.RbLosango.Text = "Losango";
-            this.RbLosango.UseVisualStyleBackColor = true;
-            this.RbLosango.Click += new System.EventHandler(this.Opcao_escolhida);
-            // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.PeachPuff;
-            this.groupBox1.Controls.Add(this.rbHexagono);
-            this.groupBox1.Controls.Add(this.RbLosango);
-            this.groupBox1.Controls.Add(this.RbTrapezio);
-            this.groupBox1.Controls.Add(this.RbCirculo);
-            this.groupBox1.Controls.Add(this.RbQuadrado);
-            this.groupBox1.Controls.Add(this.RbRetangulo);
-            this.groupBox1.Controls.Add(this.RbTriangulo);
+            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.label19);
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.label15);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.pictureBox8);
+            this.groupBox1.Controls.Add(this.pictureBox7);
+            this.groupBox1.Controls.Add(this.pictureBox6);
+            this.groupBox1.Controls.Add(this.pictureBox5);
+            this.groupBox1.Controls.Add(this.pB_Quadrado);
+            this.groupBox1.Controls.Add(this.pictureBox3);
+            this.groupBox1.Controls.Add(this.pB_triangulo);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(30, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(517, 158);
+            this.groupBox1.Size = new System.Drawing.Size(575, 158);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Selecione a figura";
             // 
-            // rbHexagono
+            // label20
             // 
-            this.rbHexagono.AutoSize = true;
-            this.rbHexagono.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.rbHexagono.Location = new System.Drawing.Point(70, 109);
-            this.rbHexagono.Name = "rbHexagono";
-            this.rbHexagono.Size = new System.Drawing.Size(168, 27);
-            this.rbHexagono.TabIndex = 6;
-            this.rbHexagono.TabStop = true;
-            this.rbHexagono.Text = "Hexágono regular";
-            this.rbHexagono.UseVisualStyleBackColor = true;
-            this.rbHexagono.Click += new System.EventHandler(this.Opcao_escolhida);
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(494, 107);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(67, 19);
+            this.label20.TabIndex = 28;
+            this.label20.Text = "Trapézio";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(408, 107);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(79, 19);
+            this.label19.TabIndex = 27;
+            this.label19.Text = "Hexágono";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(337, 107);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(65, 19);
+            this.label18.TabIndex = 26;
+            this.label18.Text = "Losango";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(247, 107);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(77, 19);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "Retângulo";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(166, 107);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(77, 19);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Quadrado";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(97, 107);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(56, 19);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Círculo";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 107);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(72, 19);
+            this.label14.TabIndex = 22;
+            this.label14.Text = "Triângulo";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(490, 29);
+            this.pictureBox8.Name = "pB_Trapezio";
+            this.pictureBox8.Size = new System.Drawing.Size(73, 75);
+            this.pictureBox8.TabIndex = 21;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pB_Trapezio);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.Location = new System.Drawing.Point(411, 29);
+            this.pictureBox7.Name = "pB_Hexagono";
+            this.pictureBox7.Size = new System.Drawing.Size(73, 75);
+            this.pictureBox7.TabIndex = 20;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pB_Hexagono_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.Location = new System.Drawing.Point(330, 29);
+            this.pictureBox6.Name = "pB_Losango";
+            this.pictureBox6.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox6.TabIndex = 19;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pB_Losango_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(249, 29);
+            this.pictureBox5.Name = "pB_Retangulo";
+            this.pictureBox5.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox5.TabIndex = 18;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pB_Retangulo_Click);
+            // 
+            // pB_Quadrado
+            // 
+            this.pB_Quadrado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pB_Quadrado.Image = ((System.Drawing.Image)(resources.GetObject("pB_Quadrado.Image")));
+            this.pB_Quadrado.Location = new System.Drawing.Point(168, 29);
+            this.pB_Quadrado.Name = "pB_Quadrado";
+            this.pB_Quadrado.Size = new System.Drawing.Size(75, 75);
+            this.pB_Quadrado.TabIndex = 17;
+            this.pB_Quadrado.TabStop = false;
+            this.pB_Quadrado.Click += new System.EventHandler(this.pB_Quadrado_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.ErrorImage")));
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(87, 29);
+            this.pictureBox3.Name = "pB_Circulo";
+            this.pictureBox3.Size = new System.Drawing.Size(75, 75);
+            this.pictureBox3.TabIndex = 17;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pB_Circulo_Click);
             // 
             // pictureBox1
             // 
@@ -388,7 +461,7 @@ namespace Areas_de_Figuras
             this.textBox7.Location = new System.Drawing.Point(31, 470);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(516, 123);
+            this.textBox7.Size = new System.Drawing.Size(574, 123);
             this.textBox7.TabIndex = 11;
             // 
             // BtnSair
@@ -470,8 +543,15 @@ namespace Areas_de_Figuras
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_triangulo)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pB_Quadrado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -486,12 +566,6 @@ namespace Areas_de_Figuras
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnDesenhar;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton RbTriangulo;
-        private System.Windows.Forms.RadioButton RbRetangulo;
-        private System.Windows.Forms.RadioButton RbQuadrado;
-        private System.Windows.Forms.RadioButton RbCirculo;
-        private System.Windows.Forms.RadioButton RbTrapezio;
-        private System.Windows.Forms.RadioButton RbLosango;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox textBox3;
@@ -512,7 +586,21 @@ namespace Areas_de_Figuras
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.RadioButton rbHexagono;
+        //private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pB_triangulo;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pB_Quadrado;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
     }
 }
 

@@ -20,12 +20,6 @@ namespace Areas_de_Figuras
         private void Form1_Load(object sender, EventArgs e)
         {
             // INICIA OS RADIOBUTTON DESMARCADOS
-            RbCirculo.AutoCheck = true;
-            RbLosango.AutoCheck = true;
-            RbQuadrado.AutoCheck = true;
-            RbRetangulo.AutoCheck = true;
-            RbTrapezio.AutoCheck = true;
-            RbTriangulo.AutoCheck = true;
             label9.Visible = false;
             
         }
@@ -35,8 +29,12 @@ namespace Areas_de_Figuras
         {
             textBox1.Text = "";
             textBox2.Text = "";
+            textBox3.Text = "";
+            textBox4.Text = "";
             textBox5.Text = "";
             textBox6.Text = "";
+            textBox7.Text = "";
+            textBox9.Text = "";
         }
         #endregion
 
@@ -79,127 +77,6 @@ namespace Areas_de_Figuras
                 textBox6.Visible = true;
                 //label7.Visible = true;
                 //textBox5.Visible = true;
-            }
-        }
-        #endregion
-
-        #region OPÇÃO DA FIGURA ESCOLHIDA COLOCANDO OS LABEL E TEXTBOX PARA DIGITAR INFORMAÇÕES
-        private void Opcao_escolhida(object sender, EventArgs e)
-        {
-            limpa_textBox();
-            label9.Visible = true;
-            foreach (Control ctrl in groupBox1.Controls)
-            {
-                if (ctrl is RadioButton radioB)
-                {
-                    if (radioB.Checked)
-                    {
-                        opcao = radioB.TabIndex; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
-                    }
-                }
-            }
-
-            Graphics g = pictureBox1.CreateGraphics();
-
-            // Limpa o desenho anterior caso haja
-            g.Clear(Color.LightSkyBlue);
-
-            textBox7.Text = "";
-
-            // DESENHO DO TRIÂNGULO
-            if (opcao == 0) // triângulo
-            {
-                Esconde();
-                label13.Text = "Triângulo";
-                textBox8.Text = "Triângulo:" + Environment.NewLine + "Figura fechada e plana formada por" +
-                                                Environment.NewLine + "três lados.";    
-                
-                Mostra(1); // MOSTRA OS TEXTBOX DOS DADOS PARA DIGITAR OS DADOS
-                label2.Text = "Informe o valor da base: ";
-                label3.Text = "Informe o valor da altura: ";
-                textBox1.Select();
-            }
-
-            // DESENHO DO RETANGULO
-            if (opcao == 1) // retângulo
-            {
-                Esconde();
-                label13.Text = "Retângulo";
-                textBox8.Text = "Retângulo:" + Environment.NewLine + "Figura fechada e plana formada por" + 
-                                                Environment.NewLine + "quatro lados. Dois deles são congruentes" + 
-                                                Environment.NewLine + "e os outros dois também.";
-                Mostra(1);
-                label2.Text = "Informe o valor da base: ";
-                label3.Text = "Informe o valor da altura: ";
-                textBox1.Select();
-            }
-
-            // DESENHO DO QUADRADO
-            if (opcao == 2) // quadrado
-            {
-                Esconde();
-                label13.Text = "Quadrado";
-                textBox8.Text = "Quadrado:" + Environment.NewLine + "Figura fechada e plana limitada por" +
-                                                Environment.NewLine + "quatro lados congruentes." +
-                                                Environment.NewLine + "(possuem a mesma medida).";
-                Mostra(2);
-                label2.Text = "Informe o valor do lado: "; 
-                textBox1.Select();
-            }
-
-            // DESENHO DO CÍRCULO
-            if (opcao == 3) // círculo
-            {
-                Esconde();
-                label13.Text = "Círculo";
-                textBox8.Text = "Quadrado:" + Environment.NewLine + "Figura fechada e plana limitada por" +
-                                                Environment.NewLine + "uma linha curva chamada" +
-                                                Environment.NewLine + "circunferência.";
-                Mostra(2);
-                label2.Text = "Informe o valor do raio: ";
-                textBox1.Select();
-            }
-
-            //DESENHO DO TRAPÉZIO ISÓSCELES
-            if (opcao == 4) // trapézio
-            {
-                Esconde();
-                label13.Text = "Trapézio";
-                textBox8.Text = "Trapézio:" + Environment.NewLine + "Figura fechada e plana que possui dois" +
-                                                Environment.NewLine + "lados e bases paralelas, onde uma é" +
-                                                Environment.NewLine + "maior e outra menor.";
-                Mostra(4);
-                label2.Text = "Informe o valor da base maior: ";
-                label3.Text = "Informe o valor da base menor: ";
-                label8.Text = "Informe o valor da altura: ";
-                //label7.Text = "Informe o valor do lado: ";
-                textBox1.Select();
-            }
-
-            // DESENHO DO LOSANGO
-            if (opcao == 5) // Losango
-            {
-                Esconde();
-                label13.Text = "Losango";
-                textBox8.Text = "Losango:" + Environment.NewLine + "Figura fechada e plana composta de " +
-                                                Environment.NewLine + "4 lados. Essa figura apresenta lados e " +
-                                                Environment.NewLine + "ângulos opostos congruentes e paralelos.";
-                Mostra(1);
-                label2.Text = "Informe o valor da diagonal maior: (DM)";
-                label3.Text = "Informe o valor da diagonal menor: (Dm)";
-                textBox1.Select();
-            }
-
-            if (opcao == 6) // Hexágono
-            {
-                Esconde();
-                label13.Text = "Hexágono";
-                textBox8.Text = "Hexágono:" + Environment.NewLine + "Figura plana é formada pela junção" +
-                                                Environment.NewLine + "de seis triângulos equiláteros";
-                                                
-                Mostra(2);
-                label2.Text = "Informe o valor do lado: ";
-                textBox1.Select();
             }
         }
         #endregion
@@ -376,6 +253,145 @@ namespace Areas_de_Figuras
                 g.Dispose();
             }
         }
+        #endregion
+
+        #region SELEÇÃO DAS FIGURAS
+
+        private void pB_Triangulo_Click(object sender, EventArgs e) // triangulo
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 0; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            // Limpa o desenho anterior caso haja
+            g.Clear(Color.LightSkyBlue);
+
+            textBox7.Text = "";
+
+            // DESENHO DO TRIÂNGULO
+                Esconde();
+                label13.Text = "Triângulo";
+                textBox8.Text = "Triângulo:" + Environment.NewLine + "Figura fechada e plana formada por" +
+                                                Environment.NewLine + "três lados.";
+
+                Mostra(1); // MOSTRA OS TEXTBOX DOS DADOS PARA DIGITAR OS DADOS
+                label2.Text = "Informe o valor da base: ";
+                label3.Text = "Informe o valor da altura: ";
+                textBox1.Select();
+            
+        }
+
+        private void pB_Circulo_Click(object sender, EventArgs e) // circulo
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 3; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            Esconde();
+            label13.Text = "Círculo";
+            textBox8.Text = "Círculo:" + Environment.NewLine + "Figura fechada e plana limitada por" +
+                                            Environment.NewLine + "uma linha curva chamada" +
+                                            Environment.NewLine + "circunferência.";
+            Mostra(2);
+            label2.Text = "Informe o valor do raio: ";
+            textBox1.Select();
+        }
+
+        private void pB_Quadrado_Click(object sender, EventArgs e) // quadrado
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 2; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            Esconde();
+            label13.Text = "Quadrado";
+            textBox8.Text = "Quadrado:" + Environment.NewLine + "Figura fechada e plana limitada por" +
+                                            Environment.NewLine + "quatro lados congruentes." +
+                                            Environment.NewLine + "(possuem a mesma medida).";
+            Mostra(2);
+            label2.Text = "Informe o valor do lado: ";
+            textBox1.Select();
+        }
+
+        private void pB_Retangulo_Click(object sender, EventArgs e) // retangulo
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 1; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            Esconde();
+            label13.Text = "Retângulo";
+            textBox8.Text = "Retângulo:" + Environment.NewLine + "Figura fechada e plana formada por" +
+                                            Environment.NewLine + "quatro lados. Dois deles são congruentes" +
+                                            Environment.NewLine + "e os outros dois também.";
+            Mostra(1);
+            label2.Text = "Informe o valor da base: ";
+            label3.Text = "Informe o valor da altura: ";
+            textBox1.Select();
+
+        }
+
+        private void pB_Losango_Click(object sender, EventArgs e) // losango
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 5; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            Esconde();
+            label13.Text = "Losango";
+            textBox8.Text = "Losango:" + Environment.NewLine + "Figura fechada e plana composta de " +
+                                            Environment.NewLine + "4 lados. Essa figura apresenta lados e " +
+                                            Environment.NewLine + "ângulos opostos congruentes e paralelos.";
+            Mostra(1);
+            label2.Text = "Informe o valor da diagonal maior: (DM)";
+            label3.Text = "Informe o valor da diagonal menor: (Dm)";
+            textBox1.Select();
+        }
+
+        private void pB_Hexagono_Click(object sender, EventArgs e) // hexágono
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 6; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            Esconde();
+            label13.Text = "Hexágono";
+            textBox8.Text = "Hexágono:" + Environment.NewLine + "Figura plana é formada pela junção" +
+                                            Environment.NewLine + "de seis triângulos equiláteros";
+
+            Mostra(2);
+            label2.Text = "Informe o valor do lado: ";
+            textBox1.Select();
+        }
+
+        private void pB_Trapezio(object sender, EventArgs e) // trapézio
+        {
+            limpa_textBox();
+            label9.Visible = true;
+            opcao = 4; // PEGA O ÍNDICE DA FIGURA ESCOLHIDA 
+            Graphics g = pictureBox1.CreateGraphics();
+
+            Esconde();
+            label13.Text = "Trapézio";
+            textBox8.Text = "Trapézio:" + Environment.NewLine + "Figura fechada e plana que possui dois" +
+                                            Environment.NewLine + "lados e bases paralelas, onde uma é" +
+                                            Environment.NewLine + "maior e outra menor.";
+            Mostra(4);
+            label2.Text = "Informe o valor da base maior: ";
+            label3.Text = "Informe o valor da base menor: ";
+            label8.Text = "Informe o valor da altura: ";
+            //label7.Text = "Informe o valor do lado: ";
+            textBox1.Select();
+        }
+
+
+
         #endregion
 
         #region DESENHO DO CÍRCULO
